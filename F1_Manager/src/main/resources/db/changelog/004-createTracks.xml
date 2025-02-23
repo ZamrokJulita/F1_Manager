@@ -1,0 +1,18 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="004" author="julita">
+        <createTable tableName="tracks">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="trackName" type="varchar(255)"/>
+            <column name="country" type="varchar(255)"/>
+            <column name="trackLengthInKilometers" type="double"/>
+            <column name="numberOfLaps" type="int"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

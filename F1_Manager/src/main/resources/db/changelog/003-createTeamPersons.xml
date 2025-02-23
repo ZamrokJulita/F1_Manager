@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="003" author="julita">
+        <createTable tableName="teamsPersons">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="startContractDate" type="date"/>
+            <column name="finishContractDate" type="date"/>
+            <column name="salaryInEuros" type="int"/>
+            <column name="teamRole" type="int"/>
+        </createTable>
+        <addColumn tableName="teamsPersons">
+            <column name="person" type="uuid">
+                <constraints foreignKeyName="person_id" referencedTableName="persons" referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="teamsPersons">
+            <column name="team" type="uuid">
+                <constraints foreignKeyName="team_id" referencedTableName="teams" referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
